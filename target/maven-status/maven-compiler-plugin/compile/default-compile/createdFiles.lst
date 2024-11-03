@@ -1,0 +1,10 @@
+com/stories/stack/RandomStoriesRetriever/model/CharacterDTO.class
+com/stories/stack/RandomStoriesRetriever/model/AppDTO.class
+com/stories/stack/RandomStoriesRetriever/entity/Artist.class
+com/stories/stack/RandomStoriesRetriever/entity/Character.class
+com/stories/stack/RandomStoriesRetriever/entity/Story.class
+com/stories/stack/RandomStoriesRetriever/model/StoryDTO.class
+com/stories/stack/RandomStoriesRetriever/controller/AppController.class
+com/stories/stack/RandomStoriesRetriever/RandomStoriesRetrieverApplication.class
+com/stories/stack/RandomStoriesRetriever/repository/AppRepository.class
+com/stories/stack/RandomStoriesRetriever/service/AppService.class

@@ -1,0 +1,10 @@
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/RandomStoriesRetrieverApplication.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/controller/AppController.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/entity/Artist.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/entity/Character.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/entity/Story.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/model/AppDTO.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/model/CharacterDTO.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/model/StoryDTO.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/repository/AppRepository.java
+/Users/rahulvaish/Downloads/RandomStoriesRetriever/src/main/java/com/stories/stack/RandomStoriesRetriever/service/AppService.java
