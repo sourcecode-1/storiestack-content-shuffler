@@ -28,7 +28,7 @@ public class AppServiceImpl implements AppService {
     @Autowired
     private StoryRepository storyRepository;
 
-    @Value("$content.retriever.limit}")
+    @Value("${content.retriever.limit}")
     private Integer contentRetrieverLimit;
 
     private final AtomicReference<List<Story>> stories = new AtomicReference<>(Collections.emptyList());
