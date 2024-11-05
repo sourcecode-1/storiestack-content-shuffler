@@ -15,6 +15,11 @@ public class AppController {
     @Autowired
     AppService appService;
 
+    @GetMapping("/")
+    public String home() {
+        return "Content Shuffler Service - Provides randomized, shuffled stories for the Storistack App";
+    }
+
     @GetMapping("/getShuffledStories")
     public List<StoryDTO> getShuffledStories() {
         return appService.getShuffledStories();
