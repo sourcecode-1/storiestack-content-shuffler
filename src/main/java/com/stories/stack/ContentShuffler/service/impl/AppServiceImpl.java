@@ -31,29 +31,28 @@ public class AppServiceImpl implements AppService {
     @Value("${content.retriever.limit}")
     private Integer contentRetrieverLimit;
 
-    private final AtomicReference<List<Story>> stories = new AtomicReference<>(Collections.emptyList());
     private final AtomicReference<List<StoryDTO>> storyDTOs = new AtomicReference<>(Collections.emptyList());
 
     @PostConstruct
     public void loadStories() {
         fetchStories();
+        log.info("Total Stories: {}",storyDTOs.get().size());
         log.info("Stories loaded successfully at {}", LocalDateTime.now());
     }
 
     @Scheduled(fixedRateString = "${content.refresh.rate}")
     public void refreshStories() {
         fetchStories();
+        log.info("Total Stories: {}",storyDTOs.get().size());
         log.info("Stories refreshed successfully at {}", LocalDateTime.now());
     }
 
     private void fetchStories() {
         try {
             List<Story> fetchedStories = storyRepository.findAll();
-            stories.set(fetchedStories);
             storyDTOs.set(fetchedStories.stream().map(AppUtil::mapToStoryDTO).collect(Collectors.toList()));
         } catch (Exception e) {
             log.error(DATA_CONNECT_EXP_MSG, e);
-            stories.set(Collections.emptyList());
             storyDTOs.set(Collections.emptyList());
         }
     }
