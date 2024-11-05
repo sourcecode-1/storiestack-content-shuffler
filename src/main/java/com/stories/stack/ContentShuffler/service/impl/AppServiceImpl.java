@@ -36,15 +36,13 @@ public class AppServiceImpl implements AppService {
     @PostConstruct
     public void loadStories() {
         fetchStories();
-        log.info("Total Stories: {}",storyDTOs.get().size());
-        log.info("Stories loaded successfully at {}", LocalDateTime.now());
+        log.info("Stories loaded successfully at {}. Total Stories: {} ", LocalDateTime.now(),storyDTOs.get().size());
     }
 
     @Scheduled(fixedRateString = "${content.refresh.rate}")
     public void refreshStories() {
         fetchStories();
-        log.info("Total Stories: {}",storyDTOs.get().size());
-        log.info("Stories refreshed successfully at {}", LocalDateTime.now());
+        log.info("Stories refreshed successfully at {}. Total Stories: {} ", LocalDateTime.now(),storyDTOs.get().size());
     }
 
     private void fetchStories() {
