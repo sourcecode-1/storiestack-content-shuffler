@@ -1,6 +1,7 @@
 package com.stories.stack.ContentShuffler.service.impl;
 
 import com.stories.stack.ContentShuffler.entity.Story;
+import com.stories.stack.ContentShuffler.exception.FetchStoriesException;
 import com.stories.stack.ContentShuffler.model.StoryDTO;
 import com.stories.stack.ContentShuffler.repository.StoryRepository;
 import com.stories.stack.ContentShuffler.service.AppService;
@@ -9,6 +10,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataAccessException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import static com.stories.stack.ContentShuffler.util.AppConstant.DATA_CONNECT_EXP_MSG;
+import static com.stories.stack.ContentShuffler.util.AppConstant.FAILED_FETCH_STORIES_EXP_MSG;
 
 @Service
 @Slf4j
@@ -49,11 +51,13 @@ public class AppServiceImpl implements AppService {
         try {
             List<Story> fetchedStories = storyRepository.findAll();
             storyDTOs.set(fetchedStories.stream().map(AppUtil::mapToStoryDTO).collect(Collectors.toList()));
-        } catch (Exception e) {
-            log.error(DATA_CONNECT_EXP_MSG, e);
+        } catch (DataAccessException e) {
+            log.error(FAILED_FETCH_STORIES_EXP_MSG, e);
             storyDTOs.set(Collections.emptyList());
+            throw new FetchStoriesException(FAILED_FETCH_STORIES_EXP_MSG, e);
         }
     }
+
 
     @Override
     public List<StoryDTO> getShuffledStories() {
